@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Box from '../../../ui/box';
 import I18nValue from '../../../ui/i18n-value';
 
-const AdvancedGasFeeInputSubtext = ({ latest, historical }) => {
+const AdvancedGasFeeInputSubtext = ({ latest, historical, feeTrend }) => {
   return (
     <Box className="advanced-gas-fee-input-subtext">
       <Box display="flex" alignItems="center">
@@ -12,7 +12,11 @@ const AdvancedGasFeeInputSubtext = ({ latest, historical }) => {
           <I18nValue messageKey="currentTitle" />
         </span>
         <span>{latest}</span>
-        <img src="./images/high-arrow.svg" alt="" />
+        {feeTrend === 'down' ? (
+          <img src="./images/low-arrow.svg" alt="" />
+        ) : (
+          <img src="./images/high-arrow.svg" alt="" />
+        )}
       </Box>
       <Box>
         <span className="advanced-gas-fee-input-subtext__label">
@@ -27,6 +31,7 @@ const AdvancedGasFeeInputSubtext = ({ latest, historical }) => {
 AdvancedGasFeeInputSubtext.propTypes = {
   latest: PropTypes.string,
   historical: PropTypes.string,
+  feeTrend: PropTypes.string,
 };
 
 export default AdvancedGasFeeInputSubtext;
