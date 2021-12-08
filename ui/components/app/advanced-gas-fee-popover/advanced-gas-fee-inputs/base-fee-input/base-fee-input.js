@@ -66,7 +66,6 @@ const validateBaseFee = (value, gasFeeEstimates, maxPriorityFeePerGas) => {
 const BaseFeeInput = () => {
   const t = useI18nContext();
   const { gasFeeEstimates, estimateUsed, maxFeePerGas } = useGasFeeContext();
-  console.log(JSON.stringify(gasFeeEstimates));
   const {
     setDirty,
     setHasError,
@@ -189,8 +188,10 @@ const BaseFeeInput = () => {
         numeric
       />
       <AdvancedGasFeeInputSubtext
-        latest={`${estimatedBaseFee} GWEI`}
-        historical={`${lowHistorical}-${highHistorical} GWEI`}
+        latest={`${parseFloat(estimatedBaseFee).toFixed(2)} GWEI`}
+        historical={`${parseFloat(lowHistorical).toFixed(2)} - ${parseFloat(
+          highHistorical,
+        ).toFixed(2)} GWEI`}
       />
     </Box>
   );
