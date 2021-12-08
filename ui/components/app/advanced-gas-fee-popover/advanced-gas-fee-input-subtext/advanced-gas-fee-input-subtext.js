@@ -12,10 +12,10 @@ const AdvancedGasFeeInputSubtext = ({ latest, historical, feeTrend }) => {
           <I18nValue messageKey="currentTitle" />
         </span>
         <span>{latest}</span>
-        {feeTrend === 'down' ? (
-          <img src="./images/low-arrow.svg" alt="" />
-        ) : (
+        {feeTrend === 'up' ? (
           <img src="./images/high-arrow.svg" alt="" />
+        ) : (
+          <img src="./images/low-arrow.svg" alt="" />
         )}
       </Box>
       <Box>
