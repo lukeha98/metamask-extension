@@ -1094,7 +1094,7 @@ export default class ConfirmTransactionBase extends Component {
           firstTx={firstTx}
           lastTx={lastTx}
           ofText={ofText}
-          requestsWaitingText={requestsWaitingText}
+          requestsWaitingText={isFailedTransaction ? requestsWaitingText : null}
           hideUserAcknowledgedGasMissing={!isDisabled()}
           disabled={
             renderSimulationFailureWarning ||
